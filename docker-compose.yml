@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  tomcat:
+    image: tomcat:10.1-jdk17-temurin
+    container_name: tomcat
+    ports:
+      - "8080:8080"
+    volumes:
+      # Monta o WAR que está no Linux para dentro do Tomcat
+      - ./helloworld.war:/usr/local/tomcat/webapps/helloworld.war
+    environment:
+      TZ: America/Sao_Paulo
